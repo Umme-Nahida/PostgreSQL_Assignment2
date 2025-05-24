@@ -58,7 +58,7 @@ INSERT INTO rangers(ranger_id,name,region) VALUES('Derek Fox','Coastal Plains');
 
 
 ---------------------Problem-2-----------
-SELECT species_id, count(*) FROM sightings GROUP BY species_id;
+SELECT count(*) FROM sightings WHERE species_id = sighting_id;
 
 
 -------------Problem 3---------------
