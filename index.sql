@@ -57,11 +57,11 @@ SELECT * FROM sightings;
 INSERT INTO rangers(ranger_id,name,region) VALUES('Derek Fox','Coastal Plains');
 
 
----------------------Problem-2-----------
+---------------------Problem-2 Count unique species-----------
 SELECT count(*) FROM sightings WHERE species_id = sighting_id;
 
 
--------------Problem 3---------------
+-------------Problem 3 Find 'Pass'---------------
 SELECT * FROM sightings WHERE location LIKE('%Pass%');
 
 
