@@ -85,17 +85,14 @@ UPDATE species
  WHERE discovery_date < '1800-01-01';
 
 ------------------Problem 8 ----------
-SELECT 
-  sighting_id,
-  sighting_time,
-  sighting_time::time AS only_time,
-  CASE 
-    WHEN sighting_time::time < TIME '12:00' THEN 'Morning'
-    WHEN sighting_time::time >= TIME '12:00' AND sighting_time::time <= TIME '17:00' THEN 'Afternoon'
-    ELSE 'Evening'
-  END AS time_of_day
+SELECT *,
+CASE
+WHEN sighting_time::time BETWEEN TIME '05:00' AND '11:59' THEN 'Morning'
+WHEN sighting_time::time BETWEEN TIME '12:00' AND '16:59' THEN 'Afternoon'
+WHEN sighting_time::time BETWEEN TIME '17:00' AND '20:59' THEN 'Evening'
+ELSE 'Night'
+END AS time_of_day
 FROM sightings;
-
 
 -------------------problem 9
 DELETE FROM rangers WHERE ranger_id NOT IN (SELECT species_id FROM sightings)
